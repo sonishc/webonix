@@ -1,9 +1,8 @@
-# README
+# ІНСТРУКЦІЯ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Інструкція з користування інформаційною системою та основні дані про веб додаток.
 
-Things you may want to cover:
+Деталі проекту:
 
 * Ruby version - '2.3.0'
 
@@ -22,7 +21,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-
+Список версій гемів які використовуються в додатку.
 Using rake 12.0.0
 Using concurrent-ruby 1.0.5
 Using i18n 0.8.1
