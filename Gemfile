@@ -11,9 +11,16 @@ end
 gem 'rails', '~> 5.0.2'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
-group :development do
+group :development, :test do
   gem 'sqlite3'
+  gem 'rspec-rails', '2.13.1'
 end
+
+group :test do
+  gem 'selenium-webdriver', '2.35.1'
+  gem 'capybara', '2.1.0'
+end
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -39,6 +46,10 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+group :doc do
+  gem 'sdoc', '0.3.20', require: false
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
@@ -57,6 +68,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
-  gem 'pg', '0.20.0'
-  gem 'rails_12factor','0.0.3'
+  gem 'pg', '0.15.1'
+  gem 'rails_12factor', '0.0.2'
 end
