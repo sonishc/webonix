@@ -11,6 +11,9 @@
 require 'spec_helper'
 
 describe "Static pages" do
+
+  let(:base_title) { "Webonix App " }
+
   describe "Home page" do
 
     it "should have content 'Webonix' " do
@@ -20,7 +23,7 @@ describe "Static pages" do
 
     it "should have the right 'Title' Головна " do
       visit '/static_pages/home'
-      expect(page).to have_title("Webonix App | Головна")
+      expect(page).to have_title("#{base_title}  | Головна")
     end
   end
 
@@ -33,7 +36,7 @@ describe "Static pages" do
 
     it "should have the right title 'Help' " do
       visit '/static_pages/help'
-      expect(page).to have_title("Webonix App | Допомога")
+      expect(page).to have_title("#{base_title}  | Допомога")
     end
   end
 
@@ -46,7 +49,21 @@ describe "Static pages" do
 
      it "should have the right title 'About' " do
        visit '/static_pages/about'
-       expect(page).to have_title("Webonix App | Про нас")
+       expect(page).to have_title("#{base_title}  | Про нас")
      end
+    end
+
+
+      describe "Contact page" do
+
+      it "should have the right title 'Contact' " do
+        visit '/static_pages/contact'
+        expect(page).to have_title("#{base_title} | Контакти")
+      end
+
+      it "should have content Контакти" do
+        visit '/static_pages/contact'
+        expect(page).to have_content("Контакти")
+      end
     end
 end
