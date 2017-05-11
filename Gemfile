@@ -14,11 +14,13 @@ gem 'rails', '~> 5.0.2'
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '3.5.2'
+  gem 'guard-rspec', '~> 4.7', '>= 4.7.3'
 end
 
 group :test do
   gem 'selenium-webdriver' #(3.3.0)
   gem 'capybara' #2.13.0
+  gem 'libnotify', '~> 0.9.1'
 end
 
 # Use Puma as the app server
