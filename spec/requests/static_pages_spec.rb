@@ -14,61 +14,34 @@ describe "Static pages" do
 
   let(:base_title) { "Webonix app " }
 
+  subject { page }
+
   describe "Home page" do
+    before { visit root_path }
 
-    it "should have content 'Webonix' " do
-      visit '/static_pages/home'
-      expect(page).to have_content('Webonix')
+    it { should have_content ('Webonix') }
+    it { should have_title (full_title('')) }
+    it { should_not have_title (' | Головна ') }
     end
-
-    it "should have the right title ' Головна' " do
-      visit '/static_pages/home'
-      expect(page).to have_title("#{base_title}")
-    end
-
-    it "should not have a custom page title" do
-      visit '/static_pages/home'
-      expect(page).not_to have_title(' | Головна ')
-    end
-  end
 
   describe "Help page" do
+    before { visit help_path }
 
-    it "should have content 'Help' " do
-      visit '/static_pages/help'
-      expect(page).to have_content('FAQ')
-    end
-
-    it "should have the right title 'Help' " do
-      visit '/static_pages/help'
-      expect(page).to have_title("#{base_title}  | Допомога")
-    end
+    it { should have_content('FAQ') }
+    it {should have_title(full_title('Допомога')) }
   end
 
   describe "About page" do
+    before { visit about_path }
 
-    it "should have content 'About Us'" do
-      visit '/static_pages/about'
-      expect(page).to have_content('About Us')
-     end
+    it { should have_content('About Us') }
+    it { should have_title(full_title('Про нас')) }
+  end
 
-     it "should have the right title 'About' " do
-       visit '/static_pages/about'
-       expect(page).to have_title("#{base_title}  | Про нас")
-     end
-    end
+  describe "Contact page" do
+    before { visit contact_path }
 
-
-      describe "Contact page" do
-
-      it "should have the right title 'Contact' " do
-        visit '/static_pages/contact'
-        expect(page).to have_title("#{base_title} | Контакти")
-      end
-
-      it "should have content Контакти" do
-        visit '/static_pages/contact'
-        expect(page).to have_content("Контакти")
-      end
-    end
+      it { should have_title(full_title('Контакти')) }
+      it { should have_content('Контакти') }
+  end
 end
