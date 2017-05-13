@@ -38,6 +38,17 @@ body{
 /* fix padding under menu after resize */
 @media screen and (max-width: 767px) {
   body { padding-top: 170px; }
+  h1 { font-size: 2em; }
+  h2 { font-size: 1.5em; }
+  nav ul {
+    clear: both;
+    text-align: center;
+    li {
+      &:hover{
+      background-color: $grayLight;
+     }
+    }
+  }
 }
 @media screen and (min-width:768px) and (max-width: 991px) {
   body { padding-top: 110px; }
@@ -78,7 +89,6 @@ textarea {
     text-decoration: none;
   }
 }
-
 
 /* footer */
 
