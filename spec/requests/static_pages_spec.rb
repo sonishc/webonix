@@ -1,13 +1,3 @@
-#require 'rails_helper'
-
-#RSpec.describe "StaticPages", type: :request do
-#  describe "GET /static_pages" do
-#    it "works! (now write some real specs)" do
-#      get static_pages_index_path
-#      expect(response).to have_http_status(200)
-#    end
-#  end
-#end
 require 'spec_helper'
 
 describe "Static pages" do
@@ -16,11 +6,17 @@ describe "Static pages" do
 
   subject { page }
 
+  shared_examples_for "all static pages" do
+    it { should have_selector('h1', text: heading)}
+    it { should have_title(full_title(page_title))}
+  end
+
   describe "Home page" do
     before { visit root_path }
+    let(:heading)  { 'Webonix app' }
+    let(:page_title)  { '' }
 
-    it { should have_content ('Webonix') }
-    it { should have_title (full_title('')) }
+    it_should_behave_like "all static pages"
     it { should_not have_title (' | Головна ') }
     end
 
@@ -43,5 +39,19 @@ describe "Static pages" do
 
       it { should have_title(full_title('Контакти')) }
       it { should have_content('Контакти') }
+  end
+
+  it "should have the right links on the leyout" do
+    visit root_path
+    click_link "Головна"
+    click_link "Зареєструватись у системі зараз!"
+    expect(page).to have_title(full_title('Реєстрація'))
+    click_link "Webonix app"
+    click_link "Допомога"
+    expect(page).to have_title(full_title('Допомога'))
+    click_link "Про нас"
+    expect(page).to have_title(full_title('Про нас'))
+    click_link "Контакти"
+    expect(page).to have_title(full_title('Контакти'))
   end
 end
