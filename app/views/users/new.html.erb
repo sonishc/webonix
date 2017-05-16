@@ -1,3 +1,23 @@
 <% provide(:title, 'Реєстрація')%>
 <h1>Зареєструватись у системі</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="row">
+  <div class="span6 offset3 ">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages'%>
+      <%= f.label :name, "Ім'я" %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email, "Email" %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password, "Пароль доступу" %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Підтвердити пароль доступу" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "Створити мій акаунт", class: "btn btn-large btn-primary"%>
+    <% end%>
+    <br>
+  </div>
+</div>

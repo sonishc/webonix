@@ -23,6 +23,7 @@ group :test do
   gem 'selenium-webdriver' #(3.3.0)
   gem 'capybara' #2.13.0
   gem 'libnotify', '~> 0.9.1'
+  gem 'factory_girl_rails', '4.5'
 end
 
 # Use Puma as the app server

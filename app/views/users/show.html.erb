@@ -1,0 +1,29 @@
+<% provide(:title, @user.name) %>
+<div class="col-md-6 content">
+  <br>
+  <h1>Статистика для прийняття попроектних рішень</h1>
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>#</th>
+        <th>Ім'я'</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><%= @user.id %></th>
+        <td><%= @user.name %></td>
+        <td><%= @user.email %></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+</div>
+<div class="col-md-3 author">
+<br>
+<%= gravatar_for @user %>
+<%= @user.name %>
+<%= @user.email %>
+</div>
+</div>
