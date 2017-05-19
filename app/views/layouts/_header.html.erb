@@ -6,7 +6,11 @@
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Головна", root_path %></li>
             <li><%= link_to "Допомога", help_path %></li>
-            <li><%= link_to "Увійти в систему", '#' %></li>
+            <% if signed_in? %>
+            <li><%= link_to "Вийти", signout_path, method: "delete" %></li>
+            <% else %>
+            <li><%= link_to "Увійти в систему", signin_path %></li>
+            <% end %>
           </ul>
         </nav>
       </div>
