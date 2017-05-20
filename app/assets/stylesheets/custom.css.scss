@@ -213,3 +213,41 @@ input {
 .field_with_errors  {
   @extend .has-error;
 }
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLight;
+    &:last-child {
+      border-bottom: 1px solid $grayLight;
+    }
+  }
+}
+/* users nav */
+
+div.users-nav {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 120px;
+    height: 190px;
+}
+
+div.users-nav:hover {
+    border: 1px solid #777;
+}
+
+div.users-nav img {
+    width: 100%;
+    height: 70%;
+}
+
+div.desc {
+    padding: 12px;
+    text-align: center;
+}

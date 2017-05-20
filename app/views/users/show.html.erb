@@ -1,6 +1,5 @@
 <% provide(:title, @user.name) %>
 <div class="col-md-6 content">
-  <br>
   <h1>Статистика для прийняття попроектних рішень</h1>
   <table class="table">
     <thead class="thead-inverse">
@@ -19,11 +18,33 @@
     </tbody>
   </table>
   <br>
+  <br>
+  <h2>Користувачі системи</h2>
+    <% @users.each do |user| %>
+  <div class="users-nav">
+    <% if current_user.admin? && !current_user?(user) %>
+    <%= link_to "Видалити", user, method: :delete,
+                                    data: { confirm: "Ви впевнені?" }, :style=>'color: #FF0066;' %>
+    <% end %>
+  <a <%= "href=#{user.id}"%>>
+    <%= gravatar_for user, size: 512 %>
+  </a>
+    <br><%= link_to user.name, user %>
+</div>
+  <% end %>
+<br>
+<%= will_paginate %>
 </div>
 <div class="col-md-3 author">
 <br>
+<h3>Профіль користувача</h3>
 <%= gravatar_for @user %>
 <%= @user.name %>
+<br>
 <%= @user.email %>
+<br>
+<br>
+<br>
+<br>
 </div>
 </div>

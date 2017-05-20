@@ -1,0 +1,29 @@
+<% provide(:title, "Редагування користувача") %>
+<div class="col-md-6 content">
+<h1>Редагувати особисті дані профілю</h1>
+
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label :name, "Ім'я'" %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password, "Пароль"%>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Підтвердити пароль" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "Зберегти зміни", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+    <div class="col-md-3 author">
+      <br>
+      <a href="http://gravatar.com/emails">Змінити фото</a>
+      <%= gravatar_for @user %>
+      </div
+  </div>
+</div>
