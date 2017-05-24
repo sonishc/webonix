@@ -9,7 +9,7 @@
     <%= f.label :description, "Опис проекту" %>
     <%= f.text_area :description, placeholder: "Опишіть тут усі дані по проекту" %>
 
-    <%= f.label :dead_line, "Дата завершення" %>
+    <%= f.label :dead_line, 'Наприклад ' + Date.today.to_s %>
     <%= f.date_field :dead_line%>
 
     <%= f.label :user_id, "Ім'я розробника" %>
