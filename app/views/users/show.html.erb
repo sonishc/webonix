@@ -3,7 +3,9 @@
 
   <h3 class="center">Користувачі системи</h3>
   <center><%= will_paginate @users, previous_label: "<", next_label: ">"%>
-  <center><% @users.each do |user| %>
+
+    <div class="show-users-nav">
+    <% @users.each do |user| %>
   <div class="users-nav">
     <% if current_user.admin? && !current_user?(user) %>
     <%= link_to "Видалити", user, method: :delete,
@@ -15,7 +17,9 @@
     <br><%= link_to user.name, user %>
 </div>
   <% end %>
-</center>
+</div>
+<br>
+
     <h1>Статистика для прийняття попроектних рішень</h1>
   <br>
     <h3>Загальна кількість проектів у системі - (<%= Project.count %>)</h3>

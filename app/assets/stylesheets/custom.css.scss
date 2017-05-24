@@ -234,8 +234,17 @@ input {
 }
 /* users nav */
 
+.show-users-nav {
+    display: inline-block;
+    background-color: red;
+    text-align: center;
+    align-self: center;
+    align-items: center;
+    align-content: center;;
+}
+
 div.users-nav {
-    margin: 0 auto;
+    margin: 0;
     border: 1px solid #ccc;
     float: left;
     width: 120px;
