@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :projects, dependent: :destroy
   has_secure_password
   before_save {email.downcase!}
   before_save { self.email = email.downcase }

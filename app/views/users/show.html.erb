@@ -1,24 +1,6 @@
 <% provide(:title, @user.name) %>
 <div class="col-md-6 content">
-  <h1>Статистика для прийняття попроектних рішень</h1>
-  <table class="table">
-    <thead class="thead-inverse">
-      <tr>
-        <th>#</th>
-        <th>Ім'я'</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row"><%= @user.id %></th>
-        <td><%= @user.name %></td>
-        <td><%= @user.email %></td>
-      </tr>
-    </tbody>
-  </table>
-  <br>
-  <br>
+
   <h2>Користувачі системи</h2>
     <% @users.each do |user| %>
   <div class="users-nav">
@@ -33,7 +15,18 @@
 </div>
   <% end %>
 <br>
-<%= will_paginate %>
+<%= will_paginate @users, previous_label: "<", next_label: ">"%>
+  <h1>Статистика для прийняття попроектних рішень</h1>
+  <hr>
+  <br>
+    <h3>Загальна кількість проектів у системі - (<%= Project.count %>)</h3>
+  <br>
+    <hr>
+    <br>
+      <h3>Загальна кількість користувачів у системі - (<%= User.count %>)</h3>
+    <br>
+      <hr>
+
 </div>
 <div class="col-md-3 author">
 <br>
@@ -41,10 +34,9 @@
 <%= gravatar_for @user %>
 <%= @user.name %>
 <br>
+<%= if @user.admin then "Проектний менеджер" else "Розробник" end %>
+<br>
 <%= @user.email %>
-<br>
-<br>
-<br>
 <br>
 </div>
 </div>

@@ -76,6 +76,10 @@ textarea {
   }
 }
 
+.right{
+  text-align: right;
+}
+
 /* header */
 
 #logo {
@@ -250,4 +254,10 @@ div.users-nav img {
 div.desc {
     padding: 12px;
     text-align: center;
+}
+
+/* Project bar*/
+
+.project-status {
+  color:green;
 }

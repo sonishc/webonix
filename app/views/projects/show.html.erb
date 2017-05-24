@@ -1,0 +1,80 @@
+<% provide(:title, @user.name) %>
+<div class="col-md-6 content">
+  <h1>Усі проекти користувача</h1>
+    <h3 class="center"><%= @user.name %> / кількість(<%= @user.projects.count %>)</h3>
+  <hr>
+  <% if @user.projects.any? %>
+      <% @projects.each do |project| %>
+        <span class="content"><h2>[ <%= project.name %> <% if current_user.admin? && !current_user?(project) %> <%= project.id %><%end%>] </h2></span>
+      <br>
+        <span class="content">
+          <%= button_to "Відкрити описання до проекту", "#", {:remote => true, 'data-toggle' =>  "modal", 'data-target' => "\##{project.id}", :class => "btn btn-info btn-lg", 'data-type' => "html" }  %>
+          <div class="modal fade" id="<%= project.id %>" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
+                  <h4 class="modal-tittle"><% @teams = Project.where(:name => project.name) %></h4>
+                  <h4>Команда </h4>
+                  <% @teams.each do |team| %>
+                  <% @team_names = User.where(:id => team.user_id) %>
+                  <% @team_names.each do |team_name| %>
+                  <%= link_to team_name.name, user_project_path(@user, team_name) %>
+                  <% end %>
+                    <% if current_user.admin? && !current_user?(project) %>
+                    <% @project_ids = Project.where(:id => team.id) %>
+                      <% @project_ids.each do |project_id| %>
+                      <%= "(id = " +project_id.id.to_s + ")" %> |
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="modal-body">
+                  <p><%= project.description %></p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </span>
+        <br>
+        <span class="content"><h4>Термін здачі до:</h4> <%= project.dead_line %></span>
+        <br />  <% pr_id = project.id %>
+        <span class="content project-status"><h4><%= if project.dead_line>Time.now then  "Час до здачі проекту: " + time_ago_in_words(project.dead_line) else "Проект завершений" end %></h4> </span>
+        <span class="timestamp right">
+          <% if current_user.admin? && !current_user?(project) %>
+
+            <%= link_to 'Видалити', user_project_path(@user, project.id),
+              data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-default", :style => "color:red;" %>
+
+          <% end %>
+
+        <% I18n.locale = :uk %>
+          <p><i>Опубліковано <%=  time_ago_in_words(project.created_at) %> назад.</i></p>
+        </span>
+        <hr>
+      <% end %>
+    <%= will_paginate @projects, previous_label: "<", next_label: ">"%>
+    <% end %>
+</div>
+<div class="col-md-3 author">
+<br>
+<h3>Профіль користувача</h3>
+<%= gravatar_for @user %>
+<%= @user.name %>
+<br>
+<%= if @user.admin then "Проектний менеджер"
+else "Розробник" end %>
+<%= @user.email %>
+<br><br>
+<%= if current_user.admin? then link_to "<i class=\"\"></i> Створити проект".html_safe, new_user_project_path, class: "btn btn-success"
+else "Кількість проектів "+ @user.projects.count.to_s end %>
+<br>
+<br>
+<br>
+<br>
+</div>
+</div>

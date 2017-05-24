@@ -3,7 +3,7 @@
 <h1>Редагувати особисті дані профілю</h1>
 
     <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
+      <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :name, "Ім'я'" %>
       <%= f.text_field :name %>

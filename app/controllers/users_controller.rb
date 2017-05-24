@@ -5,13 +5,14 @@ class UsersController < ApplicationController
   layout "show_user", except: [:new, :create] #, except: [:signup :rss] виключення
 
   def index
-  #  @users = User.all
   end
 
   def show
     @user = User.find(params[:id])
-    @users = User.paginate(:page => params[:page], :per_page => 12)
+    @users = User.paginate(:page => params[:page], :per_page => 8)
+    @projects = @user.projects.paginate(page: params[:page], :per_page => 5)
   end
+
 
   def new
      @user = User.new

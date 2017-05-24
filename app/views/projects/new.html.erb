@@ -1,0 +1,22 @@
+<% provide(:title, "Новий проект") %>
+<div class="col-md-6 content">
+  <br>
+<%= form_for  [@user, @project] , :url => { action: "create" } do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <%= f.label :name, "Ім'я" %>
+    <%= f.text_field :name %>
+
+    <%= f.label :description, "Опис проекту" %>
+    <%= f.text_area :description, placeholder: "Опишіть тут усі дані по проекту" %>
+
+    <%= f.label :dead_line, "Дата завершення" %>
+    <%= f.date_field :dead_line%>
+
+    <%= f.label :user_id, "Ім'я розробника" %>
+    <%= f.collection_select(:user_id, User.all, :id, :name)  %>
+
+    <%= f.submit "Опублікувати проект", class: "btn btn-success" %>
+<% end %>
+<br>
+<br>
+</div>
