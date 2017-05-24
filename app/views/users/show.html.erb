@@ -1,12 +1,13 @@
 <% provide(:title, @user.name) %>
-<div class="col-md-6 content">
+<div class="col-md-6 col-lg-6" style="">
 
-  <h2>Користувачі системи</h2>
-    <% @users.each do |user| %>
+  <h3 class="center">Користувачі системи</h3>
+  <center><%= will_paginate @users, previous_label: "<", next_label: ">"%>
+  <center><% @users.each do |user| %>
   <div class="users-nav">
     <% if current_user.admin? && !current_user?(user) %>
     <%= link_to "Видалити", user, method: :delete,
-                                    data: { confirm: "Ви впевнені?" }, :style=>'color: #FF0066;' %>
+             data: { confirm: "Ви впевнені?" }, :style=>'color: #FF0066;' %>
     <% end %>
   <a <%= "href=#{user.id}"%>>
     <%= gravatar_for user, size: 512 %>
@@ -14,10 +15,9 @@
     <br><%= link_to user.name, user %>
 </div>
   <% end %>
-<br>
-<%= will_paginate @users, previous_label: "<", next_label: ">"%>
-  <h1>Статистика для прийняття попроектних рішень</h1>
+</center>
   <hr>
+    <h1>Статистика для прийняття попроектних рішень</h1>
   <br>
     <h3>Загальна кількість проектів у системі - (<%= Project.count %>)</h3>
   <br>
@@ -26,9 +26,9 @@
       <h3>Загальна кількість користувачів у системі - (<%= User.count %>)</h3>
     <br>
       <hr>
-
+</center>
 </div>
-<div class="col-md-3 author">
+<div class="col-md-3 col-lg-3 author">
 <br>
 <h3>Профіль користувача</h3>
 <%= gravatar_for @user %>

@@ -1,5 +1,5 @@
 <% provide(:title, @user.name) %>
-<div class="col-md-6 content">
+<div class="col-md-6 col-lg-6 content">
   <h1>Усі проекти користувача</h1>
     <h3 class="center"><%= @user.name %> / кількість(<%= @user.projects.count %>)</h3>
   <hr>
@@ -60,7 +60,7 @@
     <%= will_paginate @projects, previous_label: "<", next_label: ">"%>
     <% end %>
 </div>
-<div class="col-md-3 author">
+<div class="col-md-3 col-lg-3 author">
 <br>
 <h3>Профіль користувача</h3>
 <%= gravatar_for @user %>

@@ -15,7 +15,7 @@
     <%= f.label :user_id, "Ім'я розробника" %>
     <%= f.collection_select(:user_id, User.all, :id, :name)  %>
 
-    <%= f.submit "Опублікувати проект", class: "btn btn-success" %>
+    <%= f.submit "Опублікувати проект", class: "btn btn-default btn-success", :style => "width:200px;"%>
 <% end %>
 <br>
 <br>
