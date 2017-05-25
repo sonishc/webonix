@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
+  resources :tasks do
+    member do
+      put :change
+    end
+  end
   resources :users do
     resources :projects, only: [:create, :destroy, :show, :new]
+
   end
   #resources :projects
   resources :sessions, only: [:new, :create, :destroy]

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+<br><br>
+
+<div class="row">
+    <div class="col-md-4"><h2 class="text-center">Список завдань</h2>
+    <%= render @to_do%>
+  </div>
+    <div class="col-md-4"><h2 class="center">Почав робити</h2>
+      <%= render @doing%>
+    </div>
+
+    <div class="col-md-4"><h2 class="center">Виконав</h2>
+      <%= render @done%>
+    </div>
+</div>
+
+<%= link_to 'New Task', new_task_path %>
+
+<br><br>
+<br><br>
