@@ -2,7 +2,8 @@
 <div class="col-md-6 content">
   <br>
 <%= form_for  [@user, @project] , :url => { action: "create" } do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
+    <%= render "shared/error_messages", object: f.object %>
+
     <%= f.label :name, "Ім'я" %>
     <%= f.text_field :name %>
 

@@ -16,12 +16,14 @@ gem 'will_paginate', '3.1.5'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'jquery-countdown-rails'
 gem 'rails-erd', '1.4.7'
+
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '3.5.2'
   gem 'guard-rspec', '~> 4.7', '>= 4.7.3'
+  gem 'railroady'
 end
 
 group :test do

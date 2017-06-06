@@ -1,14 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Content:</strong>
-  <%= @task.content %>
+  <strong>Зміст завдання:</strong>
+  <%= "[ #{@task.content} ]" %>
 </p>
 
 <p>
-  <strong>State</strong>
-  <%= @task.state %>
+  <strong>Розділ до якого віднесено завдання:</strong>
+  <%= "[ #{@task.state} ]"  %>
 </p>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<%= link_to 'Редагувати', edit_task_path(@task) %> |
+<%= link_to 'Повернутись назад', tasks_path %>
+<br>
+<br>

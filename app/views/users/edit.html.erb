@@ -25,6 +25,22 @@
       <br>
       <a href="http://gravatar.com/emails">Змінити фото</a>
       <%= gravatar_for @user %>
-      </div
+      <br>
+      <br>
+      <br>
+      <%= @user.name %>
+      <br>
+      <%= "Роль - " + if @user.admin then "Проектний менеджер" else "Розробник" end %>
+      <br>
+      <%=  "Дата реєстрації - " + @user.created_at.to_s %>
+      <br>
+      <%= "Кількість проектів - " + Project.where(:user_id => @user.id).count.to_s  %>
+      <br>
+      <%= "Не виконані завдання - " + Task.where(:user_id => @user.id, :state => "to_do").count.to_s  %>
+      <br>  <%= "Почав робити - " + Task.where(:user_id => @user.id, :state => "doing").count.to_s  %>
+      <br>  <%= "Завершив виконання - " + Task.where(:user_id => @user.id, :state => "done").count.to_s  %>
+      <br>
+      <%=  "Email -  " + @user.email %>
+    </div>
   </div>
 </div>

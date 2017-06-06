@@ -1,10 +1,58 @@
 <% provide(:title,'Контакти') %>
 <h1>Контакти</h1>
-<p>Тут знаходитиметься інформація про контакті дані веб студії</p>
-<p>Тимчасова навігація</p>
-<ul>
-  <li><a href="/static_pages/home">Головна</a></li>
-  <li><a href="/static_pages/help">Допомога</a></li>
-  <li><a href="/static_pages/about">Про нас</a></li>
-  <li><a href="/static_pages/contact">Про нас</a></li>
-</ul>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="well well-sm">
+                <form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Ім'я'</label>
+                            <input type="text" class="form-control" id="name" placeholder="Введіть ім'я'" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">
+                                Email адреса</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                <input type="email" class="form-control" id="email" placeholder="Введіть email" required="required" /></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Повідомлення</label>
+                            <textarea name="message" id="message" class="form-control" rows="5" cols="25" required="required"
+                                placeholder="Повідомлення"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                            Відправити повідомлення</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <form>
+            <legend><span class="glyphicon glyphicon"></span> Як знайти?</legend>
+            <address>
+                <strong>м. Львів</strong><br>
+                вул. Золота 10<br>
+                <abbr title="Phone">
+                    Тел:</abbr>
+                (063) 62-038-14
+            </address>
+            <address>
+                <strong>Email</strong><br>
+                <a href="mailto:#">onixsonic@gmail.com</a>
+            </address>
+            </form>
+        </div>
+    </div>
+</div>

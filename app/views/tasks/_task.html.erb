@@ -1,8 +1,11 @@
+<% I18n.locale = :uk %>
 <div class="panel panel-default panel-info">
   <div class="panel-heading">
     <%= link_to edit_task_path(task) do %>
-    Created <%= time_ago_in_words(task.created_at) %> ago
+    Створено <%= time_ago_in_words(task.created_at) %> назад |
     <% end %>
+
+    <%= link_to "Видалити", task_path(task), method: :delete, data: {confirm: "Ви впевнені?"}%>
   </div>
   <div class="panel-body"><%= task.content %></div>
   <div class="panel-footer center">
